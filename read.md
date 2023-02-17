@@ -16,7 +16,7 @@ An app that let's you look for beers , add it to your favorites list, to drink l
 
 - **404** - A custom page for the 404 error
 - **500** - A custom page for the 500 error
-- **homepage** - As a user I want to be able to access the homepage and filter by type of restaurant, log in and sign up. 
+- **homepage** - A page that shows a random beer and gives you access to login, signup and a top ten list
 - **sign up** - A sign up button that only shows if you are not logged in
 - **login** - A login button that only shows if you are not logged in
 - **logout** - A logout button that only shows if you are logged in
@@ -51,10 +51,10 @@ An app that let's you look for beers , add it to your favorites list, to drink l
 | `DELETE`   | `/user/favorites/:beerId` | Private route. Deletes the existing favorite from the current user. |                                                          |
 | `GET`     | `/user/to-drink/`              |Private route. Render the `to drink` view.                                 |
 | `POST`   | `/user/to-drink/` | Private route. Adds a new to drink beer for the current user. |  {beer_name}                                                        |                                                         |
-| `DELETE`   | `/user/to-drink/:beerId` | Private route. Deletes the existing favorite from the current user. |                                                          |                                        |
-| `GET`   | `/user/drank/` | Private route. Adds a new drank beer for the current user. |  {beer_name}                                                        |                                                         |
-| `POST`   | `/user/drank/` | Private route. Deletes the existing drank from the current user. |   |                                                         |
-| `DELETE`   | `/user/drank/:beerId` | Private route. Deletes the existing drank from the current user. | 
+| `DELETE`   | `/user/to-drink/:beerId` | Private route. Deletes the existing favorite beer from the current user. |                                                          |                                        |
+| `GET`   | `/user/drank/` | Private route with the drank beers list. |                                                          |                                                         |
+| `POST`   | `/user/drank/` | Private route. Adds a new drank beer to the list.| {beer_name}  |                                                         |
+| `DELETE`   | `/user/drank/:beerId` | Private route. Deletes the existing drank beer from the current user. | 
 
 
 
@@ -92,7 +92,7 @@ Favorites model
 <br>
 
 ## API's
-Yet to determine the best API.
+https://beer-list.p.rapidapi.com/
 
 <br>
 
@@ -123,9 +123,9 @@ Yet to determine the best API.
 
 The url to your repository and to your deployed project
 
-[Repository Link]()
+[Repository Link](https://github.com/JRaposo22/Project-Two-BeerApp)
 
-[Deploy Link]()
+[Deploy Link](https://brew-pal.cyclic.app/)
 
 
 
@@ -140,6 +140,6 @@ The url to your presentation slides
 [Slides Link](https://docs.google.com/presentation/d/1P5FIi0vHZBUcgUtmt1M4_lLCO5dwdJ4UOgtJa4ehGfk/edit?usp=sharing)
 
 ### Contributors
-FirstName LastName - [`<github-username>`](https://github.com/person1-username) - [`<linkedin-profile-link>`](https://www.linkedin.com/in/person1-username)
+João Raposo - [`<github-JRaposo22>`](https://github.com/JRaposo22) - [`<linkedin-profile-link>`](www.linkedin.com/in/joãofraposo)
 
-FirstName LastName - [`<github-username>`](https://github.com/person2-username) - [`<linkedin-profile-link>`](https://www.linkedin.com/in/person2-username)
+João Carneiro - [`<github-joao621119>`](https://github.com/joao621119) - [`<linkedin-profile-link>`](https://www.linkedin.com/in/person2-username)
