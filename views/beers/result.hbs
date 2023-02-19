@@ -1,0 +1,12 @@
+{{#each beer}}
+    <h2>{{this.title}}</h2>
+    <h4>{{this.alchool}}</h4>
+    <h4>{{this.country}}</h4>
+    <p>{{this.description}}</p>
+
+   {{#if this.loggedIn}}
+        <h3>ADD to colleciton</h3>
+    {{/if}}
+{{/each }}
+
+ 
