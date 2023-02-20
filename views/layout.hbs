@@ -16,9 +16,9 @@
 {{!-- NAVBAR WITHOUT LOGIN --}}
 
 {{#unless loggedIn}}
-<nav class="p-3 border-gray-800 rounded bg-red-800 dark:bg-red-800 dark:border-red-800">
+<nav class="p-3 border-red-800 rounded bg-red-800 dark:bg-red-800 dark:border-red-800">
   <div class="container flex flex-wrap items-center justify-between mx-auto">
-    <a href="#" class="flex items-center">
+    <a href="/" class="flex items-center">
         <img src="images/logo-cropped-removebg.png" class="h-6 mr-3 sm:h-10" alt="Flowbite Logo" />
         <span class="self-center text-xl font-semibold whitespace-nowrap text-white">The Cork Pork</span>
     </a>
@@ -38,7 +38,7 @@
           <a href="/auth/login" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</a>
         </li>
         <li>
-          <a href="/contact-us" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact Us</a>
+          <a href="/contact-us" class="block py-2 pl-3 pr-4 text-white-700 rounded {{!-- hover:bg-gray-100 md:hover:bg-transparent --}} md:border-0 md:hover:text-white-700 md:p-0 text-white-400 md:hover:text-white hover:bg-white-700 hover:text-white md:hover:bg-transparent">Contact Us</a>
         </li>
       </ul>
     </div>
@@ -49,11 +49,11 @@
 {{!-- NAVABAR WITH LOGIN --}}
    
 {{#if loggedIn}}   
-<nav class="p-3 border-gray-800 rounded bg-gray-800 dark:bg-gray-800 dark:border-gray-800">
+<nav class="p-3 border-red-800 rounded bg-red-800 dark:bg-red-800 dark:border-red-800">
   <div class="container flex flex-wrap items-center justify-between mx-auto">
-  <a href="https://flowbite.com/" class="flex items-center">
+  <a href="/" class="flex items-center">
       <img src="images/logo-cropped-removebg.png" class="h-6 mr-3 sm:h-10" alt="Flowbite Logo" />
-      <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+      <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">The Cork Pork</span>
   </a>
   <div class="flex items-center md:order-2">
       <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
