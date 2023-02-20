@@ -20,7 +20,10 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    imageUrl: String,
+    imageUrl: {
+      type: String,
+      default: '../public/images/profile_pic.png'
+    },
     favorites:[{
       type: Schema.Types.ObjectId,
       ref: 'Wine'

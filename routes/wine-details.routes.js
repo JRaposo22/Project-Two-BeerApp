@@ -8,6 +8,8 @@ router.get('/wine-details/:id/add', async (req, res, next) => {
     try {
         //get wine ID
         const {id} = req.params
+        //get user
+        let loggedIn = req.session.currentUser;
         //get current user email
         const userEmail = req.session.currentUser.email
         //fin the wine to add to favorites
@@ -24,7 +26,7 @@ router.get('/wine-details/:id/add', async (req, res, next) => {
             //if it doesn't include then add to the favorites list
             await User.findByIdAndUpdate(user._id, { $push:{favorites:wine._id} } );
         } 
-        res.render('wines/wine-details')
+        res.render('wines/wine-details', {loggedIn})
 
     } catch (error) {
         console.log(error)
