@@ -4,13 +4,28 @@ const mongoose = require("mongoose");
 const Wine = require('../models/Wine.model')
 const User = require('../models/User.model')
 
-router.post('/wine-details/:id/add', async (req, res, next) => {
+router.get('/wine-details/:id/add', async (req, res, next) => {
     try {
+        //get wine ID
         const {id} = req.params
+        //get current user email
         const userEmail = req.session.currentUser.email
+        //fin the wine to add to favorites
         let wine = await Wine.findById(id)
-        await User.findOneAndUpdate({email :userEmail },{wine} )
+        //find the user
+        let user = await User.findOne({email: userEmail});
+        //get the favorites array
+        let userFavorites = user.favorites;
+      
+
+        //check if the array includes the wine
+        if(!(userFavorites.includes(wine._id))){
+
+            //if it doesn't include then add to the favorites list
+            await User.findByIdAndUpdate(user._id, { $push:{favorites:wine._id} } );
+        } 
         res.render('wines/wine-details')
+
     } catch (error) {
         console.log(error)
         next(error)
@@ -23,6 +38,7 @@ router.get('/wine-details/:id', async (req, res, next) => {
         const {id} = req.params
         let wine = await Wine.findById(id)
         res.render('wines/wine-details', wine)
+        
     } catch (error) {
         console.log(error)
         next(error)
