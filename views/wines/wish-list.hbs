@@ -1,0 +1,13 @@
+<h1>Mr/Ms. {{username}}'s Wish List</h1>
+
+{{#each wine}}
+
+    <a href="/wine-details/{{_id}}">
+        <img src="{{image}}" alt="{{wine}}">
+        <h2>{{wine}}</h2>
+        <p>{{winery}}</p>
+        <p>{{location}}</p>
+        <p>{{rating.average}}</p>
+    </a>
+    
+{{/each}}
