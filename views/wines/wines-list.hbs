@@ -1,0 +1,15 @@
+<h1>Our wine list:</h1>
+
+<div>
+
+{{#each wine}}
+
+    <img src="{{image}}" alt="{{wine}}">
+    <h2>{{wine}}</h2>
+    <p>{{winery}}</p>
+    <p>{{location}}</p>
+    <p>{{rating.average}}</p>
+
+{{/each}}
+
+</div>

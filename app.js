@@ -47,20 +47,8 @@ app.use("/", tastedWinesRoutes)
 const contactUsRoutes = require("./routes/contact-us.routes")
 app.use("/", contactUsRoutes)
 
-const whiteWinesRoutes = require("./routes/white-wines.routes")
-app.use("/", whiteWinesRoutes)
-
-const redWinesRoutes = require("./routes/red-wines.routes")
-app.use("/", redWinesRoutes)
-
-const sparklingWinesRoutes = require("./routes/sparkling-wines.routes")
-app.use("/", sparklingWinesRoutes)
-
-const desertWinesRoutes = require("./routes/desert-wines.routes")
-app.use("/", desertWinesRoutes)
-
-const portWinesRoutes = require("./routes/port-wines.routes")
-app.use("/", portWinesRoutes)
+const winesListRoutes = require("./routes/wines-list.routes")
+app.use("/", winesListRoutes)
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
