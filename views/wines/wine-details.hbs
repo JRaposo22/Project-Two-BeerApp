@@ -1,8 +1,8 @@
-<h2>{{wine}}</h2>
-<img src="{{image}}" alt="{{wine}}">
-<p>{{winery}}</p>
-<p>{{location}}</p>
-<p>{{rating.average}}</p>
-<a href="/favourites/{{_id}}">Add to Favourites</a>
-<a href="/tasted-wines/{{_id}}">Add to Tasted</a>
-<a href="/wish-list/{{_id}}">Add to Wish List</a>
+<h2>{{wine.wine}}</h2>
+<img src="{{wine.image}}" alt="{{wine}}">
+<p>{{wine.winery}}</p>
+<p>{{wine.location}}</p>
+<p>{{wine.rating.average}}</p>
+<a href="/wine-details/{{wine._id}}/add-favourite">Add to Favourites</a>
+<a href="/wine-details/{{wine._id}}/add-tasted-wines">Add to Tasted</a>
+<a href="/wine-details/{{wine._id}}/add-wish-list">Add to Wish List</a>

@@ -10,9 +10,9 @@ router.get('/favourites', async (req, res, next) => {
   try {
     let loggedIn = req.session.currentUser;
     const userEmail = req.session.currentUser.email
-    const favoriteWines = await User.findOne({email: userEmail}).populate('favorites');
-    console.log(favoriteWines);
-    res.render('wines/favourites', {favoriteWines, loggedIng})
+    const favouriteWines = await User.findOne({email: userEmail}).populate('favourites');
+    console.log(favouriteWines);
+    res.render('wines/favourites', {favouriteWines, loggedIn})
 
   } catch (error) {
 

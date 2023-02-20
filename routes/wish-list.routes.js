@@ -10,7 +10,7 @@ router.get('/wish-list', async (req, res, next) => {
     let loggedIn = req.session.currentUser;
     const userEmail = req.session.currentUser.email
     const wishList = await User.findOne({email: userEmail}).populate('wishList');
-    console.log(tastedWines);
+  
     res.render('wines/wish-list', {wishList, loggedIn});
 
   } catch (error) {
