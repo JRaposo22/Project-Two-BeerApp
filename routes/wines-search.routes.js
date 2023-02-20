@@ -11,6 +11,8 @@ router.get('/search', (req, res) => {
 router.post('/search', async (req, res, next) => {
 
     try {
+
+        //check ucrrent user
         let loggedIn = req.session.currentUser;
         const {searchWine, searchWinery} = req.body;
         console.log(searchWine)

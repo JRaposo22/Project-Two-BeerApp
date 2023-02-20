@@ -24,6 +24,14 @@ const userSchema = new Schema(
     favorites:[{
       type: Schema.Types.ObjectId,
       ref: 'Wine'
+    }],
+    wishList:[{
+      type: Schema.Types.ObjectId,
+      ref: 'Wine'
+    }],
+    tastedWines:[{
+      type: Schema.Types.ObjectId,
+      ref: 'Wine'
     }]
   },
   {
