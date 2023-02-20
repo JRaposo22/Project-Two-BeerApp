@@ -7,17 +7,20 @@
     <title>{{appTitle}}</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css"  rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
   </head>
 
   <body>
 {{!-- NAVBAR WITHOUT LOGIN --}}
 
 {{#unless loggedIn}}
-<nav class="p-3 border-gray-800 rounded bg-gray-800 dark:bg-gray-800 dark:border-gray-800">
+<nav class="p-3 border-gray-800 rounded bg-red-800 dark:bg-red-800 dark:border-red-800">
   <div class="container flex flex-wrap items-center justify-between mx-auto">
     <a href="#" class="flex items-center">
-        <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3 sm:h-10" alt="Flowbite Logo" />
-        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+        <img src="images/logo-cropped-removebg.png" class="h-6 mr-3 sm:h-10" alt="Flowbite Logo" />
+        <span class="self-center text-xl font-semibold whitespace-nowrap text-white">The Cork Pork</span>
     </a>
     <button data-collapse-toggle="navbar-solid-bg" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-solid-bg" aria-expanded="false">
       <span class="sr-only">Open main menu</span>
@@ -26,10 +29,10 @@
     <div class="hidden w-full md:block md:w-auto" id="navbar-solid-bg">
       <ul class="flex flex-col mt-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
         <li>
-          <a href="/" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-white dark:bg-blue-600 md:dark:bg-transparent" aria-current="page">Home</a>
+          <a href="/" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-white-700 md:p-0 md:dark:text-white dark:bg-white-600 md:dark:bg-transparent" aria-current="page">Home</a>
         </li>
         <li>
-          <a href="/auth/signup" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Signup</a>
+          <a href="/auth/signup" class="block py-2 pl-3 pr-4 text-white-700 rounded {{!-- hover:bg-white-100 md:hover:bg-transparent --}} md:border-0 {{!-- md:hover:text-white-700 --}} md:p-0{{!--  text-white-400 --}} {{!-- md:hover:text-white --}} {{!-- hover:bg-white-700 hover:text-white md:hover:bg-transparent --}}">Signup</a>
         </li>
         <li>
           <a href="/auth/login" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</a>
@@ -49,13 +52,13 @@
 <nav class="p-3 border-gray-800 rounded bg-gray-800 dark:bg-gray-800 dark:border-gray-800">
   <div class="container flex flex-wrap items-center justify-between mx-auto">
   <a href="https://flowbite.com/" class="flex items-center">
-      <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
+      <img src="images/logo-cropped-removebg.png" class="h-6 mr-3 sm:h-10" alt="Flowbite Logo" />
       <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
   </a>
   <div class="flex items-center md:order-2">
       <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
         <span class="sr-only">Open user menu</span>
-        <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo">
+        <img class="w-8 h-8 rounded-full" src="{{user.imageUrl}}" alt="user photo">
       </button>
       <!-- Dropdown menu -->
       <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
@@ -74,7 +77,7 @@
             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
           </li>
           <li>
-            <a href="/auth/logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+            <a href="/auth/logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Log out</a>
           </li>
         </ul>
       </div>

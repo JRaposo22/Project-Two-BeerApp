@@ -5,11 +5,16 @@
 }
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: darkred;
-  color: white;
+  font-family: 'Playfair Display', serif;
+  background-color: white;
 }
 
 a{
   text-decoration: none;
+}
+
+/* index.hbs */
+
+.titles{
+  text-align: center;
 }
