@@ -1,6 +1,6 @@
-<h1>Mr/Ms. {{username}}'s Tasted Wines</h1>
+<h1>Mr/Ms. {{loggedIn}}'s Tasted Wines</h1>
 
-{{#each wine}}
+{{#each userWines.favourites}}
 
     <a href="/wine-details/{{_id}}">
         <img src="{{image}}" alt="{{wine}}">

@@ -9,9 +9,8 @@ router.get('/tasted-wines', async (req, res, next) => {
   try {
     let loggedIn = req.session.currentUser;
     const userEmail = req.session.currentUser.email
-    const tastedWines = await User.findOne({email: userEmail}).populate('tastedWines');
-    console.log(tastedWines);
-    res.render('wines/tasted-wines', {tastedWines, loggedIn});
+    const userWines = await User.findOne({email: userEmail}).populate('tastedWines');
+    res.render('wines/tasted-wines', {userWines, loggedIn});
 
   } catch (error) {
     console.log(error);
@@ -26,7 +25,7 @@ router.post("/tasted-wines/:id", async (req, res, next) => {
       let loggedIn = req.session.currentUser;
       const { id } = req.params;
       await Wine.findByIdAndRemove(id);
-      res.redirect("/tasted-wines", {loggedIng});
+      res.redirect("/tasted-wines", {loggedIn});
     } catch (error) {
       console.log(error);
       next(error);
