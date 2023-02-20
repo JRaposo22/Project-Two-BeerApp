@@ -21,6 +21,10 @@ const userSchema = new Schema(
       required: true,
     },
     imageUrl: String,
+    favorites:[{
+      type: Schema.Types.ObjectId,
+      ref: 'Wine'
+    }]
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
