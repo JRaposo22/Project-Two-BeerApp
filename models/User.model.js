@@ -22,7 +22,7 @@ const userSchema = new Schema(
     },
     imageUrl: {
       type: String,
-      default: '../public/images/profile_pic.png'
+      default: 'https://res.cloudinary.com/dkoe4o8w1/image/upload/v1676914008/profile_pic_c9ynkq.png'
     },
     favorites:[{
       type: Schema.Types.ObjectId,
