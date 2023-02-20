@@ -11,6 +11,10 @@ const wineSchema = new Schema ({
     location: String,
     image: String,
     id: Number,
+    type: {
+        type: String,
+        default: 'None'
+    }
     
 });
 
