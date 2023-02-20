@@ -5,6 +5,7 @@ const Wine = require('../models/Wine.model')
 
 router.get('/search', (req, res) => {
 
+    console.log(req.session.currentUser);
     res.render('wines/search');
 });
 
