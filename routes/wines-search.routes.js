@@ -12,9 +12,20 @@ router.post('/search', async (req, res, next) => {
 
     try {
         let loggedIn = req.session.currentUser;
-        const {searchwine} = req.body;
+        const {searchWine, searchWinery} = req.body;
+        console.log(searchWine)
+        
 
-        const wine = await Wine.find({'title': searchwine});
+
+        let wine 
+        if(searchWine) {
+            wine = await Wine.find({'wine': searchWine});
+            
+        }else{
+            wine = await Wine.find({'winery': searchWinery});
+
+        }
+        
         console.log(wine);
         res.render('wines/result', {wine, loggedIn});
     } catch (error) {
