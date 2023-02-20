@@ -1,9 +1,17 @@
-<h1>Our wine list:</h1>
+<h1>Our wine list</h1>
 
 <div>
-
+    <ul>
+        <li>Reds</li>
+        <li>Whites</li>
+        <li>Sparklings</li>
+        <li>Ports</li>
+        <li>Deserts</li>
+    </ul>
+</div>
 
 {{#each wine}}
+
     <a href="/wine-details/{{_id}}">
         <img src="{{image}}" alt="{{wine}}">
         <h2>{{wine}}</h2>
@@ -11,7 +19,5 @@
         <p>{{location}}</p>
         <p>{{rating.average}}</p>
     </a>
+    
 {{/each}}
-
-
-</div>

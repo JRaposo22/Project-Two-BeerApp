@@ -4,7 +4,9 @@ const mongoose = require("mongoose");
 const Wine = require('../models/Wine.model')
 
 router.get('/wish-list', (req, res) => {
-    res.render('wines/wish-list')
+  let user = req.session.currentUser
+  console.log(user)
+  res.render('wines/wish-list', user)
 })
 
 router.post("/wish-list/:id", async (req, res, next) => {
