@@ -15,8 +15,15 @@ const express = require("express");
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
 
+const Cors = require("cors");
+const BodyParser = require("body-parser");
+
 const app = express();
 
+
+app.use(BodyParser.json());
+app.use(BodyParser.urlencoded({ extended: true }));
+app.use(Cors());
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
 
@@ -58,7 +65,7 @@ const profileRoutes = require("./routes/profile.routes")
 app.use("/", profileRoutes)
 //Reviewsroutes
 const reviewsRoutes = require("./routes/reviews.routes")
-app.use("/", reviewsRoutes)
+app.use("/", reviewsRoutes);
 
 
 

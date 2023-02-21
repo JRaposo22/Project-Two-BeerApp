@@ -10,6 +10,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
   </head>
 
   <body>
@@ -126,6 +130,31 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
     <script src="/js/script.js"></script>
+    <script>
+    $(document).ready(function () {
+        $("#searchWine").autocomplete({
+            source: async function(request, response) {
+                let data = await fetch(`http://localhost:3000/wines/search?query=${request.term}`)
+                    .then(results => results.json())
+                    .then(results => results.map(result => { 
+                        return { label: result.wine, value: result.wine, id: result._id };
+                    }));
+                response(data);
+            },
+            minLength: 2,
+            select: function(event, ui) {
+                fetch(`http://localhost:3000/get/${ui.item.id}`)
+                    .then(result => result.json())
+                    .then(result => {
+                        $("#ingredients").empty();
+                        result.ingredients.forEach(ingredient => {
+                            $("#ingredients").append(`<li>${ingredient}</li>`);
+                        });
+                    });
+            }
+        });
+    });
+</script>
   </body>
 
 </html>
