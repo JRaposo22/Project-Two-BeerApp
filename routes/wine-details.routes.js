@@ -9,7 +9,17 @@ router.get('/wine-details/:id', async (req, res, next) => {
     try {
         let loggedIn = req.session.currentUser;
         const {id} = req.params
-        let wine = await Wine.findById(id)
+        const wine = await Wine.findById(id)
+        .populate('reviews')
+        .populate({
+          path: 'reviews',
+          populate: {
+            path: 'author',
+            model: 'User',
+          },
+        }); 
+
+
         res.render('wines/wine-details', {wine, loggedIn})
         
     } catch (error) {
