@@ -1,4 +1,16 @@
-<h1>Mr/Ms. {{loggedIn.username}}'s  Favourite Wines</h1>
+<h1>Mr/Ms. {{loggedIn.username}}'s  Favourite {{wineType}} Wines</h1>
+<form action="/favourites" method="post">
+<select name="wineType" id="sortBy" onchange="this.form.submit()">
+    <option value="none" hidden selected></option>
+    <option value="Red"> Red Wines</option>
+    <option value="White">White Wines</option>
+    <option value="Sparkling">Sparkling Wines</option>
+    <option value="Rose">Rose Wines</option>
+    <option value="Dessert">Dessert Wines</option>
+    <option value="Port">Port Wines</option>
+</select>
+
+</form>
 
 {{#each userFavourites}}
 

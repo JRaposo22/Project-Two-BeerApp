@@ -28,7 +28,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
   if (username === "" || email === "" || password === "") {
     res.status(400).render("auth/signup", {
       errorMessage:
-        "All fields are mandatory. Please provide your username, email and password.",
+        "All fields are mandatory. Please provide your email and password.",
     });
 
     return;

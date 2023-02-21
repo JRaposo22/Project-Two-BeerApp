@@ -56,6 +56,10 @@ app.use("/", wineDetailsRoutes)
 //Profile routes
 const profileRoutes = require("./routes/profile.routes")
 app.use("/", profileRoutes)
+//Reviewsroutes
+const reviewsRoutes = require("./routes/reviews.routes")
+app.use("/", reviewsRoutes)
+
 
 
 

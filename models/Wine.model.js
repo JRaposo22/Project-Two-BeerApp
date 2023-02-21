@@ -14,7 +14,13 @@ const wineSchema = new Schema ({
     type: {
         type: String,
         default: 'None'
-    }
+    },
+    reviews: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'Review',
+        },
+      ]
     
 });
 

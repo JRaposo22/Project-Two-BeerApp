@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
-const Wine = require('../models/Wine.model')
+const Wine = require('../models/Wine.model');
 const User = require('../models/User.model');
+const filterWines = require('../functions/filter-wines');
 
 router.get('/wish-list', async (req, res, next) => {
 
@@ -19,7 +20,37 @@ router.get('/wish-list', async (req, res, next) => {
     next(error);
   }
    
-})
+});
+
+router.post('/wish-list', async (req, res, next) => {
+
+  try {
+    //Get the filter wine type
+    let {wineType} = req.body;
+    //Current user logged in
+    let loggedIn = req.session.currentUser;
+    //Current user email
+    const userEmail = req.session.currentUser.email
+    //Get the user info
+    const user = await User.findOne({email: userEmail}).populate('wishList');
+    //Get user favourite wines
+    let userWishList = user.wishList;
+
+    //Function to filter the wines bye type
+    userWishList = filterWines(wineType, userWishList);
+
+
+
+    res.render('wines/wish-list', {userWishList, loggedIn, wineType})
+
+  } catch (error) {
+
+    console.log(error);
+    next(error);
+    
+  }
+   
+});
 
 router.post('/wine-details/:id/add-wish-list', async (req, res, next) => {
   try {
