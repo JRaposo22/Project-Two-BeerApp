@@ -3,8 +3,9 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const Wine = require('../models/Wine.model');
 const User = require('../models/User.model');
+const filterWines = require('../functions/filter-wines');
 
-router.get('/tasted-wines', async (req, res, next) => {
+router.get('/tasted-wines',  async (req, res, next) => {
 
   try {
     let loggedIn = req.session.currentUser;
@@ -19,7 +20,37 @@ router.get('/tasted-wines', async (req, res, next) => {
     
   }
     
-})
+});
+
+router.post('/tasted-wines', async (req, res, next) => {
+
+  try {
+    //Get the filter wine type
+    let {wineType} = req.body;
+    //Current user logged in
+    let loggedIn = req.session.currentUser;
+    //Current user email
+    const userEmail = req.session.currentUser.email
+    //Get the user info
+    const user = await User.findOne({email: userEmail}).populate('tastedWines');
+    //Get user favourite wines
+    let userTasted = user.tastedWines;
+
+    //Function to filter the wines bye type
+    userTasted = filterWines(wineType, userTasted);
+
+
+
+    res.render('wines/tasted-wines', {userTasted, loggedIn, wineType})
+
+  } catch (error) {
+
+    console.log(error);
+    next(error);
+    
+  }
+   
+});
 
 router.post('/wine-details/:id/add-tasted-wines', async (req, res, next) => {
   try {

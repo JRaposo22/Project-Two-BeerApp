@@ -3,15 +3,18 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const Wine = require('../models/Wine.model')
 const User = require('../models/User.model')
-
+const filterWines = require('../functions/filter-wines');
 
 router.get('/favourites', async (req, res, next) => {
 
   try {
+    let {wineType} = req.body;
     let loggedIn = req.session.currentUser;
     const userEmail = req.session.currentUser.email
     const user = await User.findOne({email: userEmail}).populate('favourites');
     const userFavourites = user.favourites;
+
+    
 
     res.render('wines/favourites', {userFavourites, loggedIn})
 
@@ -24,6 +27,27 @@ router.get('/favourites', async (req, res, next) => {
    
 })
 
+router.post('/favourites', async (req, res, next) => {
+
+  try {
+    let {wineType} = req.body;
+    let loggedIn = req.session.currentUser;
+    const userEmail = req.session.currentUser.email
+    const user = await User.findOne({email: userEmail}).populate('favourites');
+    let userFavourites = user.favourites;
+
+    userFavourites = filterWines(wineType, userFavourites);
+
+    res.render('wines/favourites', {userFavourites, loggedIn, wineType})
+
+  } catch (error) {
+
+    console.log(error);
+    next(error);
+    
+  }
+   
+});
 
 router.post('/wine-details/:id/add-favourite', async (req, res, next) => {
   try {
