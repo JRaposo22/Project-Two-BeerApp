@@ -1,13 +1,23 @@
-<h1>Mr/Ms. {{username}}'s Wish List</h1>
+<h1>Mr/Ms. {{loggedIn.username}}'s Wish List</h1>
 
-{{#each wine}}
+{{#each userWishList}}
 
-    <a href="/wine-details/{{Wine._id}}">
-        <img src="{{Wine.image}}" alt="{{Wine.wine}}">
-        <h2>{{Wine.wine}}</h2>
-        <p>{{Wine.winery}}</p>
-        <p>{{Wine.location}}</p>
-        <p>{{Wine.rating.average}}</p>
-    </a>
+    <a href="/wine-details/{{_id}}">
+        <img src="{{image}}" alt="{{wine}}">
+        </a>
+        <h2>{{wine}}</h2>
+        <p>{{winery}}</p>
+        <p>{{location}}</p>
+        <p>{{rating.average}}</p>
+    
+        <form action="/wine-details/{{_id}}/add-favourite" method="post">
+             <button type="submit">Add to Favourites</button>
+        </form>
+        <form action="/wine-details/{{_id}}/add-tasted-wines" method="post">
+             <button type="submit">Add to Tasted</button>
+        </form>
+        <form action="/wish-list/{{_id}}/delete-wish-list" method="post">
+             <button type="submit">Remove from Wish List</button>
+        </form>
     
 {{/each}}
