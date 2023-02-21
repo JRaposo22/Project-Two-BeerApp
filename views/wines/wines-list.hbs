@@ -1,6 +1,6 @@
+<div style="text-align: center">
 
-<h1>Our {{wineType}} wine list</h1>
-
+<h1 id="winelisth">Our {{wineType}} Wine list</h1>
 
 <form action="/wines-list" method="post">
 <select name="wineType" id="sortBy" onchange="this.form.submit()">
@@ -14,16 +14,22 @@
 </select>
 
 </form>
+</div>
 
+<div id="winelisteach">
 
-{{#each wine}}
+    {{#each wine}}
+    <div id="eachwine">
+            <a href="/wine-details/{{_id}}">
+                <div id="littlewine">
+                <img id="bottle" src="{{image}}" alt="{{wine}}">
+                    <h1 style="color: darkred">{{wine}}</h1>
+                    <p>From: {{location}}</p>
+                    <p>Winery: {{winery}}</p>
+                    <p>Rating: {{rating.average}}</p>
+                </div>
+            </a>
+        </div>
+    {{/each}}
 
-    <a href="/wine-details/{{_id}}">
-        <img src="{{image}}" alt="{{wine}}">
-        <h2>{{wine}}</h2>
-        <p>{{winery}}</p>
-        <p>{{location}}</p>
-        <p>{{rating.average}}</p>
-    </a>
-    
-{{/each}}
+</div>

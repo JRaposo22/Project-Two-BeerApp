@@ -30,3 +30,30 @@
     
     
 {{/each}}
+
+<div id="winelisteach">
+
+    {{#each userFavourites}}
+        <div id="eachwine">
+                <a href="/wine-details/{{_id}}">
+                    <div id="littlewine">
+                    <img id="bottle" src="{{image}}" alt="{{wine}}">
+                        <h1 style="color: darkred">{{wine}}</h1>
+                        <p>From: {{location}}</p>
+                        <p>Winery: {{winery}}</p>
+                        <p>Rating: {{rating.average}}</p>
+                    </div>
+                </a>
+            </div>
+
+        <div class="winebuttons">
+                <form action="/favourites/{{_id}}/delete-favourite" method="post">
+                    <button type="submit">Remove from favourites</button>
+                </form>
+                <form action="/favourites/{{_id}}/delete-favourite-tasted" method="post">
+                    <button type="submit">Remove from favourites and tasted wines</button>
+                </form>
+            </div> 
+        {{/each}}
+
+</div>
