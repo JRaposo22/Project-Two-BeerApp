@@ -15,7 +15,7 @@
     <button type="submit">Add to Wish List</button>
 </form>
 
-<form action="/review/create/{{wine._id}}'" method="post">
+<form action="/review/create/{{wine._id}}" method="post">
 
     <textarea name="reviewContent" id="" cols="30" rows="10" placeholder="Review">
 
@@ -25,4 +25,10 @@
 
 </form>
 {{/if}}
+
+{{#each wine.reviews}}
+<h3>Review</h3>
+<h4>User:{{this.author.username}}</h4>
+<p>{{this.content}}</p>
+{{/each}}
 

@@ -10,12 +10,12 @@ router.post('/review/create/:id', async (req, res, next) => {
 
       const loggedIn = req.session.currentUser;
       const userId = loggedIn._id;
-      const { wineId } = req.params;
+      const wineId  = req.params.id;
       const { reviewContent} = req.body;
-      console.log(req.params)
+  
   
       //Create the review
-      const newReview = await Review.create({ userId, reviewContent });
+      const newReview = await Review.create({ content: reviewContent, author: userId  });
   
       //Add the review to the user
       await User.findByIdAndUpdate(userId, { $push: { reviews: newReview._id } });
