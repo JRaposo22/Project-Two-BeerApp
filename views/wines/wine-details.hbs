@@ -14,5 +14,15 @@
 <form action="/wine-details/{{wine._id}}/add-wish-list" method="post">
     <button type="submit">Add to Wish List</button>
 </form>
+
+<form action="/review/create/{{wine._id}}'" method="post">
+
+    <textarea name="reviewContent" id="" cols="30" rows="10" placeholder="Review">
+
+    </textarea>
+
+    <button type="submit">Submit review</button>
+
+</form>
 {{/if}}
 

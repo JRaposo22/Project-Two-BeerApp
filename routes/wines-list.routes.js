@@ -7,9 +7,10 @@ const filterWines = require('../functions/filter-wines');
 
 router.get('/wines-list', async (req, res, next) => {
     try {
+      const loggedIn = req.session.currentUser;
         let wine = await Wine.find()
         console.log(wine)
-        res.render('wines/wines-list', {wine})
+        res.render('wines/wines-list', {wine, loggedIn})
     } catch (error) {
         console.log(error)
         next(error)
