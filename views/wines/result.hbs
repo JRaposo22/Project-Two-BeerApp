@@ -1,9 +1,11 @@
 {{#each wine}}
 
+    <a href="/wine-details/{{_id}}">
     <img src="{{image}}" alt="{{wine}}">
     <h2>{{wine}}</h2>
     <h4>{{winery}}</h4>
     <h4>{{location}}</h4>
     <p>{{rating.average}}</p>
+    </a>
    
 {{/each }}

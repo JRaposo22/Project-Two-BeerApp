@@ -13,8 +13,141 @@ a{
   text-decoration: none;
 }
 
+
 /* index.hbs */
 
-.titles{
+.mainpage{
   text-align: center;
+  background-image: url(https://img.atlasobscura.com/7ExtzOeSLqldbYVI2Fsvx2O8P3emK9kSpZvmvo8vfKQ/rs:fill:12000:12000/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL2Fzc2V0/cy8wMTE1ZmExNzdm/ODYwNzVmMDFfYmEt/b2JqLTQyNzU1LTAw/MDEtcHViLWxhcmdl/LmpwZw.jpg);
+  background-size: cover;
+  background-position: center;
+  color: white;
+  height: 688;
+}
+.titles{
+  position: relative;
+  top: 40%;
+}
+
+
+/* signup.hbs */
+
+#signup{
+  padding-top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#signupdiv{
+  padding: 30px;
+  background-color: rgb(234, 234, 234);
+  width: 400px;
+  border-radius: 3%;
+  text-align: center;
+}
+
+#signuph{
+  font-size: 30px;
+  padding-bottom: 10px;
+}
+
+.signupitems{
+  padding: 10px;
+}
+
+#signupbutton{
+  margin-top: 10px;
+  text-align: center;
+  width: 100px;
+  height: 40px;
+  background-color: darkred;
+  color: white;
+  border: 5px inset red;
+}
+
+
+/* login.hbs */
+
+#login{
+  padding-top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#logindiv{
+  padding: 30px;
+  background-color: rgb(234, 234, 234);
+  width: 400px;
+  border-radius: 3%;
+  text-align: center;
+}
+
+#loginh{
+  font-size: 30px;
+  padding-bottom: 10px;
+}
+
+.loginitems{
+  padding: 10px;
+}
+
+#loginbutton{
+  margin-top: 10px;
+  text-align: center;
+  width: 100px;
+  height: 40px;
+  background-color: darkred;
+  color: white;
+  border: 5px inset red;
+}
+
+
+/* contact-us.hbs  */
+
+#contactush{
+  text-align: center;
+  font-size: 40px;
+  padding: 20px;
+}
+
+#contactusdiv{
+  display: flex;
+  justify-content: space-around;
+  padding-top: 70px;
+}
+
+#address{
+  display: flex;
+  align-items: center;
+}
+
+.sectionitems{
+  padding: 5px 20px 5px 0;
+}
+
+.map{
+  width: 350px;
+  height: 350px;
+}
+
+#contactusmessage{
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+.messageintems{
+  padding: 10px;
+}
+
+#sendmessagebutton{
+  margin-top: 10px;
+  text-align: center;
+  width: 150px;
+  height: 50px;
+  background-color: darkred;
+  color: white;
+  border: 5px inset red;
 }
