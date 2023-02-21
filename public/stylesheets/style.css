@@ -6,11 +6,16 @@
 
 body {
   font-family: 'Playfair Display', serif;
-  background-color: white;
+  background-color: antiquewhite;
 }
 
 a{
   text-decoration: none;
+}
+
+.navbar{
+  background-color: darkred;
+  color: antiquewhite;
 }
 
 
@@ -21,12 +26,12 @@ a{
   background-image: url(https://img.atlasobscura.com/7ExtzOeSLqldbYVI2Fsvx2O8P3emK9kSpZvmvo8vfKQ/rs:fill:12000:12000/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL2Fzc2V0/cy8wMTE1ZmExNzdm/ODYwNzVmMDFfYmEt/b2JqLTQyNzU1LTAw/MDEtcHViLWxhcmdl/LmpwZw.jpg);
   background-size: cover;
   background-position: center;
-  color: white;
+  color: antiquewhite;
   height: 688;
 }
 .titles{
   position: relative;
-  top: 40%;
+  top: 20%;
 }
 
 
@@ -41,7 +46,6 @@ a{
 
 #signupdiv{
   padding: 30px;
-  background-color: rgb(234, 234, 234);
   width: 400px;
   border-radius: 3%;
   text-align: center;
@@ -50,6 +54,7 @@ a{
 #signuph{
   font-size: 30px;
   padding-bottom: 10px;
+  color: darkred;
 }
 
 .signupitems{
@@ -63,7 +68,8 @@ a{
   height: 40px;
   background-color: darkred;
   color: white;
-  border: 5px inset red;
+  border: 5px inset rgb(159, 0, 0);
+  border-radius: 5px;
 }
 
 
@@ -78,7 +84,6 @@ a{
 
 #logindiv{
   padding: 30px;
-  background-color: rgb(234, 234, 234);
   width: 400px;
   border-radius: 3%;
   text-align: center;
@@ -87,6 +92,7 @@ a{
 #loginh{
   font-size: 30px;
   padding-bottom: 10px;
+  color: darkred
 }
 
 .loginitems{
@@ -100,7 +106,8 @@ a{
   height: 40px;
   background-color: darkred;
   color: white;
-  border: 5px inset red;
+  border: 5px inset rgb(159, 0, 0);
+  border-radius: 5px;
 }
 
 
@@ -110,6 +117,7 @@ a{
   text-align: center;
   font-size: 40px;
   padding: 20px;
+  color: darkred;
 }
 
 #contactusdiv{
@@ -124,7 +132,7 @@ a{
 }
 
 .sectionitems{
-  padding: 5px 20px 5px 0;
+  padding: 10px 20px 10px 0;
 }
 
 .map{
@@ -149,5 +157,6 @@ a{
   height: 50px;
   background-color: darkred;
   color: white;
-  border: 5px inset red;
+  border: 5px inset rgb(159, 0, 0);
+  border-radius: 5px;
 }

@@ -16,29 +16,32 @@
 {{!-- NAVBAR WITHOUT LOGIN --}}
 
 {{#unless loggedIn}}
-<nav class="p-3 border-red-800 rounded bg-red-800 dark:bg-red-800 dark:border-red-800">
+<nav class="p-3 {{!-- bg-red-900 dark:bg-red-800 dark:border-red-800 --}} navbar">
   <div class="container flex flex-wrap items-center justify-between mx-auto">
     <a href="/" class="flex items-center">
-        <img src="https://res.cloudinary.com/dkoe4o8w1/image/upload/v1676913927/logo-cropped-removebg_zhtekj.png" style="width: 35px; margin-right: 10px" alt="The Cork Pork Logo" />
-        <span class="self-center text-xl font-semibold whitespace-nowrap text-white">The Cork Pork</span>
+        <img src="https://res.cloudinary.com/dkoe4o8w1/image/upload/v1676913927/logo-cropped-removebg_zhtekj.png" style="width: 40px; margin-right: 10px" alt="The Cork Pork Logo" />
+        <span class="self-center text-xl {{!-- font-semibold --}} whitespace-nowrap {{!-- text-white --}}">The Cork Pork</span>
     </a>
-    <button data-collapse-toggle="navbar-solid-bg" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-solid-bg" aria-expanded="false">
+    <button data-collapse-toggle="navbar-solid-bg" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-antiquewhite rounded-lg md:hidden {{!-- hover:bg-gray-100 --}} {{!-- focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 --}}" aria-controls="navbar-solid-bg" aria-expanded="false">
       <span class="sr-only">Open main menu</span>
       <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
     </button>
     <div class="hidden w-full md:block md:w-auto" id="navbar-solid-bg">
-      <ul class="flex flex-col mt-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
+      <ul style="float:right; font-size: 15px" class="flex flex-col mt-4 rounded-lg {{!-- bg-gray-50 --}} md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 {{!-- md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700 --}}">
         <li>
-          <a href="/" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-white-700 md:p-0 md:dark:text-white dark:bg-white-600 md:dark:bg-transparent" aria-current="page">Home</a>
+          <a href="/" class="block py-2 pl-3 pr-4 text-antiquewhite {{!-- bg-blue-700  --}}{{!-- rounded --}} {{!-- md:bg-transparent md:text-antiquewhite-700 --}} md:p-0 {{!-- md:text-antiquewhite dark:bg-white-600 md:dark:bg-transparent --}}" aria-current="page">Home</a>
         </li>
         <li>
-          <a href="/auth/signup" class="block py-2 pl-3 pr-4 text-white-700 rounded {{!-- hover:bg-white-100 md:hover:bg-transparent --}} md:border-0 {{!-- md:hover:text-white-700 --}} md:p-0{{!--  text-white-400 --}} {{!-- md:hover:text-white --}} {{!-- hover:bg-white-700 hover:text-white md:hover:bg-transparent --}}">Signup</a>
+          <a href="/wines-list" class="block py-2 pl-3 pr-4 text-antiquewhite {{!-- bg-blue-700  --}}{{!-- rounded --}} {{!-- md:bg-transparent md:text-antiquewhite-700 --}} md:p-0 {{!-- md:text-antiquewhite dark:bg-white-600 md:dark:bg-transparent --}}" aria-current="page">Our Wines</a>
         </li>
         <li>
-          <a href="/auth/login" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</a>
+          <a href="/auth/signup" class="block py-2 pl-3 pr-4 {{!-- text-white-700 rounded --}} {{!-- hover:bg-white-100 md:hover:bg-transparent --}} md:border-0 {{!-- md:hover:text-white-700 --}} md:p-0{{!--  text-white-400 --}} {{!-- md:hover:text-white --}} {{!-- hover:bg-white-700 hover:text-white md:hover:bg-transparent --}}">Sign Up</a>
         </li>
         <li>
-          <a href="/contact-us" class="block py-2 pl-3 pr-4 text-white-700 rounded {{!-- hover:bg-gray-100 md:hover:bg-transparent --}} md:border-0 md:hover:text-white-700 md:p-0 text-white-400 md:hover:text-white hover:bg-white-700 hover:text-white md:hover:bg-transparent">Contact Us</a>
+          <a href="/auth/login" class="block py-2 pl-3 pr-4 {{!-- text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent --}} md:border-0 {{!-- md:hover:text-blue-700 --}} md:p-0 {{!-- dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent --}}">Log In</a>
+        </li>
+        <li>
+          <a href="/contact-us" class="block py-2 pl-3 pr-4 {{!-- text-white-700 rounded --}} {{!-- hover:bg-gray-100 md:hover:bg-transparent --}} md:border-0 {{!-- md:hover:text-white-700 --}} md:p-0 {{!-- text-white-400 md:hover:text-white hover:bg-white-700 hover:text-white md:hover:bg-transparent --}}">Contacts</a>
         </li>
       </ul>
     </div>
@@ -49,21 +52,24 @@
 {{!-- NAVABAR WITH LOGIN --}}
    
 {{#if loggedIn}}   
-<nav class="p-3 border-red-800 rounded bg-red-800 dark:bg-red-800 dark:border-red-800">
+<nav class="p-3 {{!-- border-red-800 rounded bg-red-800 dark:bg-red-800 dark:border-red-800 --}} navbar">
   <div class="container flex flex-wrap items-center justify-between mx-auto">
   <a href="/" class="flex items-center">
-      <img src="https://res.cloudinary.com/dkoe4o8w1/image/upload/v1676913927/logo-cropped-removebg_zhtekj.png" style="width: 35px; margin-right: 10px" alt="The Cork Pork Logo" />
-      <span class="self-center text-xl font-semibold whitespace-nowrap text-white">The Cork Pork</span>
+      <img src="https://res.cloudinary.com/dkoe4o8w1/image/upload/v1676913927/logo-cropped-removebg_zhtekj.png" style="width: 40px; margin-right: 10px" alt="The Cork Pork Logo" />
+      <span class="self-center text-xl font-semibold whitespace-nowrap text-antiquewhite">The Cork Pork</span>
   </a>
   <div class="flex items-center md:order-2">
+    <div style="padding: 0 10px 0 10px;">
+      <span class="block text-sm text-antiquewhite">Kung fu master {{loggedIn.username}}</span>
+    </div>
       <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
         <span class="sr-only">Open user menu</span>
-        <img class="w-8 h-8 rounded-full" src="{{loggedIn.imageUrl}}" alt="user photo">
+        <img style="width: 50px" class="{{!-- w-8 h-8 --}} rounded-full" src="{{loggedIn.imageUrl}}" alt="user photo">
       </button>
       <!-- Dropdown menu -->
       <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
         <div class="px-4 py-3">
-          <span class="block text-sm text-gray-900 dark:text-white">{{loggedIn.username}}</span>
+          <span class="block text-sm text-gray-900 text-black">{{loggedIn.username}}</span>
           <span class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">{{loggedIn.email}}</span>
         </div>
         <ul class="py-2" aria-labelledby="user-menu-button">
@@ -81,27 +87,33 @@
           </li>
         </ul>
       </div>
-      <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
+      <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-antiquewhite {{!-- rounded-lg --}} md:hidden {{!-- hover:bg-gray-100 --}} {{!-- focus:outline-none focus:ring-2 focus:ring-gray-200 --}} {{!-- dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 --}}" aria-controls="mobile-menu-2" aria-expanded="false">
         <span class="sr-only">Open main menu</span>
         <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
     </button>
   </div>
   <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
-    <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+    <ul style="float: right; font: size 15px" class="flex flex-col p-4 mt-4 {{!-- border --}} {{!-- border-gray-100 rounded-lg bg-gray-50 --}} md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium {{!-- md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 --}}">
       <li>
-        <a href="/" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Home</a>
+        <a href="/" class="block py-2 pl-3 pr-4 text-antiquewhite {{!-- bg-blue-700 rounded md:bg-transparent md:text-blue-700 --}} md:p-0 {{!-- dark:text-white --}}" aria-current="page">Home</a>
       </li>
       <li>
-        <a href="/wines/search" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Search</a>
+        <a href="/wines-list" class="block py-2 pl-3 pr-4 text-antiquewhite {{!-- bg-blue-700  --}}{{!-- rounded --}} {{!-- md:bg-transparent md:text-antiquewhite-700 --}} md:p-0 {{!-- md:text-antiquewhite dark:bg-white-600 md:dark:bg-transparent --}}" aria-current="page">Our Wines</a>
       </li>
       <li>
-        <a href="/favourites" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Favourites</a>
+        <a href="/wines/search" class="block py-2 pl-3 pr-4 {{!-- text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 --}} md:p-0 {{!-- dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 --}}">Search</a>
       </li>
       <li>
-        <a href="/wish-list" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">To-Drink</a>
+        <a href="/favourites" class="block py-2 pl-3 pr-4 {{!-- text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 --}} md:p-0 {{!-- dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 --}}">Favourites</a>
       </li>
       <li>
-        <a href="/tasted-wines" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Drank</a>
+        <a href="/wish-list" class="block py-2 pl-3 pr-4 {{!-- text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 --}} md:p-0 {{!-- dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 --}}">To-Drink</a>
+      </li>
+      <li>
+        <a href="/tasted-wines" class="block py-2 pl-3 pr-4 {{!-- text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 --}} md:p-0 {{!-- dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 --}}">Drank</a>
+      </li>
+      <li>
+        <a href="/contact-us" class="block py-2 pl-3 pr-4 {{!-- text-white-700 rounded --}} {{!-- hover:bg-gray-100 md:hover:bg-transparent --}} md:border-0 {{!-- md:hover:text-white-700 --}} md:p-0 {{!-- text-white-400 md:hover:text-white hover:bg-white-700 hover:text-white md:hover:bg-transparent --}}">Contacts</a>
       </li>
     </ul>
   </div>
