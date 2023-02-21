@@ -1,8 +1,18 @@
 <h2>{{wine.wine}}</h2>
-<img src="{{wine.image}}" alt="{{wine}}">
+<img src="{{wine.image}}" alt="{{wine.wine}}">
 <p>{{wine.winery}}</p>
 <p>{{wine.location}}</p>
 <p>{{wine.rating.average}}</p>
-<a href="/wine-details/{{wine._id}}/add-favourite">Add to Favourites</a>
-<a href="/wine-details/{{wine._id}}/add-tasted-wines">Add to Tasted</a>
-<a href="/wine-details/{{wine._id}}/add-wish-list">Add to Wish List</a>
+
+{{#if loggedIn}}
+<form action="/wine-details/{{wine._id}}/add-favourite" method="post">
+    <button type="submit">Add to Favourites</button>
+</form>
+<form action="/wine-details/{{wine._id}}/add-tasted-wines" method="post">
+    <button type="submit">Add to Tasted</button>
+</form>
+<form action="/wine-details/{{wine._id}}/add-wish-list" method="post">
+    <button type="submit">Add to Wish List</button>
+</form>
+{{/if}}
+

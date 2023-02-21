@@ -14,23 +14,19 @@ router.post('/search', async (req, res, next) => {
 
     try {
 
-        //check ucrrent user
+        //check current user
         let loggedIn = req.session.currentUser;
         const {searchWine, searchWinery} = req.body;
-        console.log(searchWine)
-        
-
-
+        //Initialize wine variable
         let wine 
+        //check if the user is searching by wine name or winery
         if(searchWine) {
-            wine = await Wine.find({'wine': searchWine});
-            
+            wine = await Wine.find({'wine': searchWine});           
         }else{
             wine = await Wine.find({'winery': searchWinery});
-
         }
         
-        console.log(wine);
+        
         res.render('wines/result', {wine, loggedIn});
     } catch (error) {
         console.log(error);
