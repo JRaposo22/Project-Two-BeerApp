@@ -1,6 +1,18 @@
-<h1>Your profile</h1>
-<h2>Name: {{user.username}}</h2>
-<h2>Email: {{user.email}}</h2>
-<h2>Profile Picture:</h2>
-<img src="{{user.imageUrl}}" alt="{{user.username}} profile picture">
-<a href="/profile/edit">Edit Profile</a>
+<div id="profilesection">
+
+    <h1 id="profileh">{{user.username}}'s profile</h1>
+    <div id="profileedit">
+        <h2 class="profileelements">Title: {{user.title}}</h2>
+        <h2 class="profileelements">Username: {{user.username}}</h2>
+        <h2 class="profileelements">Email: {{user.email}}</h2>
+        <h2 class="profileelements">Profile Picture:</h2>
+        <img class="profileelements" id="profileimg" src="{{user.imageUrl}}" alt="{{user.username}} profile picture">
+    </div>
+    <a class="profileelements" id="editprofilebutton" href="/profile/edit">Edit Profile</a>
+</div>
+
+<div>
+
+    <h1>{{user.username}}'s Reviews:</h1>
+
+</div>

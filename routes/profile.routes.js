@@ -37,8 +37,8 @@ router.post('/profile/edit', async (req, res, next) => {
 
     try {
         let loggedIn = req.session.currentUser;
-        let {username} = req.body;
-        await User.findByIdAndUpdate(loggedIn._id, {username})
+        let {username, title} = req.body;
+        await User.findByIdAndUpdate(loggedIn._id, {username, title})
         console.log(username);
 
         

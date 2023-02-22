@@ -209,3 +209,93 @@ margin-bottom: 10px;
 .winebuttons{
   width: 300px;
 }
+
+
+/* profile.hbs 
+profile-edit.hbs */
+
+#profilesection{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 22px;
+}
+
+#profileedit{
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+}
+
+.profileelements{
+  margin: 10px 0;
+}
+
+#profileh{
+  text-align: center;
+  color: darkred;
+  padding: 20px;
+  font-size: 40px;
+}
+
+#profileimg{
+  width: 160px;
+  border-radius: 100%;
+}
+
+#editprofilebutton{
+  margin: 10px;
+  text-align: center;
+  width: 150px;
+  height: 35px;
+  background-color: darkred;
+  color: white;
+  border: 5px inset rgb(159, 0, 0);
+  border-radius: 5px;
+}
+
+
+/* search.hbs 
+result.hbs */
+
+#searchDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+}
+
+#searchWinery{
+  margin: 10px;
+}
+
+#searchbuttons{
+  margin: 10px;
+  text-align: center;
+  width: 150px;
+  height: 35px;
+  background-color: darkred;
+  color: white;
+  border: 5px inset rgb(159, 0, 0);
+  border-radius: 5px;
+}
+
+#searchresultsh{
+
+  color: darkred;
+  padding: 20px 0 50px 30px;
+  font-size: 40px;
+}
+
+
+/* favourites.hbs */
+
+
+/* wish-list.hbs */
+
+
+/* tasted-wines.hbs */
+
+

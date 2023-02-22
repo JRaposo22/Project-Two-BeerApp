@@ -1,4 +1,4 @@
-{{#each wine}}
+{{!-- {{#each wine}}
 
     <a href="/wine-details/{{_id}}">
     <img src="{{image}}" alt="{{wine}}">
@@ -8,4 +8,24 @@
     <p>{{rating.average}}</p>
     </a>
    
-{{/each }}
+{{/each }} --}}
+
+<h1 id="searchresultsh">Search results:</h1>
+
+<div id="winelisteach">
+
+    {{#each wine}}
+    <div id="eachwine">
+            <a href="/wine-details/{{_id}}">
+                <div id="littlewine">
+                <img id="bottle" src="{{image}}" alt="{{wine}}">
+                    <h1 style="color: darkred">{{wine}}</h1>
+                    <p>From: {{location}}</p>
+                    <p>Winery: {{winery}}</p>
+                    <p>Rating: {{rating.average}}</p>
+                </div>
+            </a>
+        </div>
+    {{/each}}
+
+</div>
