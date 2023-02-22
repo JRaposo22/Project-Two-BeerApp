@@ -33,14 +33,16 @@ router.post('/review/create/:id', async (req, res, next) => {
     }
   });
 
-router.post("/review/edit/:reviewId", async (req, res, next) => {
+router.post("/review/edit/:reviewId/:wineId", async (req, res, next) => {
   try {
-    const {reviewId} = req.params.reviewId
-    const {content} = req.body
-    await Review.findByIdAndUpdate(reviewId, {content})
+    const reviewId = req.params.reviewId
+    const wineId = req.params.wineId;
+    const {reviewContent} = req.body
+    await Review.findByIdAndUpdate(reviewId, {content: reviewContent})
     const review = await Review.findById(reviewId)
-    console.log("HELOOOoooo", review)
-    /* res.redirect(`/wine-details/${wineId}`); */
+    console.log(reviewContent)
+    
+    res.redirect(`/wine-details/${wineId}`); 
   } catch (error) {
     console.log(error)
     next(error)

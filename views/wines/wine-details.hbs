@@ -28,8 +28,9 @@
 
 {{#each userFilteredReviews}}
 <h1>Your review:</h1>
+
+<form action="/review/edit/{{this._id}}/{{this.wineId}}" method="post">
 <textarea name="reviewContent" id="reviewContent" cols="30" rows="10">{{this.content}}</textarea>
-<form action="/review/edit/{{this._id}}" method="post">
     <button type="submit">Edit your Review</button>
 </form>
 {{/each}}

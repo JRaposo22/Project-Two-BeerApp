@@ -30,6 +30,8 @@ router.get('/wine-details/:id', async (req, res, next) => {
           return review.author.email !== user.email
         })
 
+        
+
         res.render('wines/wine-details', {wine, loggedIn, user, userFilteredReviews, filteredReviews})
         
     } catch (error) {
