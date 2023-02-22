@@ -2,6 +2,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const axios = require("axios");
 const Wine = require('../models/Wine.model');
+const Page = require('../models/Page.model');
 
 const MONGO_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/IronHack-BeerApp";
 
@@ -41,8 +42,9 @@ async function seed(){
         
         await Wine.create(dessertWines.data); 
         await Wine.updateMany({type:'None'},{type:'Dessert'}) 
-
-
+ 
+       
+        await Page.create({prev:0, next:21})
 
 
 
