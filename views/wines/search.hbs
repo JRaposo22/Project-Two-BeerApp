@@ -1,14 +1,20 @@
-<form action="/wines/search" method="post">
+<div id="searchDiv">
 
-<div class="ui-widget">
-    <label for="wineSearch"></label>
-    <input  id="searchWine">
-    <button type="submit">Find Wine!</button>
-</div>
+    <img width="120px" src="https://res.cloudinary.com/dkoe4o8w1/image/upload/v1676913927/logo-cropped-removebg_zhtekj.png" />
     
+    <form action="/wines/search" method="post">
 
-    <input type="text" name="searchWinery" id="searchWinery">
-    <button type="submit">Find by Winery!</button>
+        <div class="ui-widget">
+            <label for="wineSearch"></label>
+            <input type="text" id="searchWine">
+            <button id="searchbuttons" type="submit">Find Wine</button>
+        </div>
+        
+        <div>
+                <input type="text" name="searchWinery" id="searchWinery">
+                <button id="searchbuttons" type="submit">Find by Winery</button>
+        </div>
+    
+    </form>
 
-</form>
-
+</div>

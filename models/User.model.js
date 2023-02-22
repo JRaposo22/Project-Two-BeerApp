@@ -24,6 +24,10 @@ const userSchema = new Schema(
       type: String,
       default: 'https://res.cloudinary.com/dkoe4o8w1/image/upload/v1676914008/profile_pic_c9ynkq.png'
     },
+    title: {
+      required: true,
+      type: String,
+    },
     favourites:[{
       type: Schema.Types.ObjectId,
       ref: 'Wine'
