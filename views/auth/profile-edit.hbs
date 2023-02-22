@@ -1,0 +1,10 @@
+<h1>Your profile</h1>
+<form action="" method="post">
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" value="{{user.username}}">
+    
+    <h2>Profile Picture:</h2>
+    <img src="{{user.imageUrl}}" alt="{{user.username}} profile picture">
+    <button type="submit">Submit changes</button>
+</form>
+
