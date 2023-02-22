@@ -7,7 +7,6 @@ const Review = require('../models/Review.model');
 
 router.post('/review/create/:id', async (req, res, next) => {
     try {
-
       const loggedIn = req.session.currentUser;
       const userId = loggedIn._id;
       const wineId  = req.params.id;
@@ -15,7 +14,7 @@ router.post('/review/create/:id', async (req, res, next) => {
   
   
       //Create the review
-      const newReview = await Review.create({ content: reviewContent, author: userId  });
+      const newReview = await Review.create({ content: reviewContent, author: userId , wineId:wineId });
   
       //Add the review to the user
       await User.findByIdAndUpdate(userId, { $push: { reviews: newReview._id } });
@@ -34,9 +33,19 @@ router.post('/review/create/:id', async (req, res, next) => {
     }
   });
 
-
-
-
+router.post("/review/edit/:reviewId", async (req, res, next) => {
+  try {
+    const {reviewId} = req.params.reviewId
+    const {content} = req.body
+    await Review.findByIdAndUpdate(reviewId, {content})
+    const review = await Review.findById(reviewId)
+    console.log("HELOOOoooo", review)
+    /* res.redirect(`/wine-details/${wineId}`); */
+  } catch (error) {
+    console.log(error)
+    next(error)
+  }
+})
 
 
 module.exports = router;

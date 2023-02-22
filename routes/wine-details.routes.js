@@ -9,7 +9,8 @@ router.get('/wine-details/:id', async (req, res, next) => {
     try {
         let loggedIn = req.session.currentUser;
         const {id} = req.params
-        const wine = await Wine.findById(id)
+        const user = await User.findById(loggedIn._id).populate("reviews")
+        let wine = await Wine.findById(id)
         .populate('reviews')
         .populate({
           path: 'reviews',
@@ -17,10 +18,19 @@ router.get('/wine-details/:id', async (req, res, next) => {
             path: 'author',
             model: 'User',
           },
-        }); 
+        });
 
+        let userReviews = wine.reviews
+        let userFilteredReviews = userReviews.filter(review => {
+          return review.author.email === user.email
+        })
+        
+        let wineReviews = wine.reviews
+        let filteredReviews = wineReviews.filter(review => {
+          return review.author.email !== user.email
+        })
 
-        res.render('wines/wine-details', {wine, loggedIn})
+        res.render('wines/wine-details', {wine, loggedIn, user, userFilteredReviews, filteredReviews})
         
     } catch (error) {
         console.log(error)
@@ -28,5 +38,4 @@ router.get('/wine-details/:id', async (req, res, next) => {
     }
 })
 
-
-  module.exports = router;
+module.exports = router;

@@ -26,8 +26,18 @@
 </form>
 {{/if}}
 
-{{#each wine.reviews}}
-<h3>Review</h3>
+{{#each userFilteredReviews}}
+<h1>Your review:</h1>
+<textarea name="reviewContent" id="reviewContent" cols="30" rows="10">{{this.content}}</textarea>
+<form action="/review/edit/{{this._id}}" method="post">
+    <button type="submit">Edit your Review</button>
+</form>
+{{/each}}
+
+<hr>
+
+<h1>{{wine.wine}}'s Reviews:</h1>
+{{#each filteredReviews}}
 <h4>User:{{this.author.username}}</h4>
 <p>{{this.content}}</p>
 {{/each}}
