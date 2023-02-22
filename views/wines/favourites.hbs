@@ -1,16 +1,21 @@
-<h1>Mr/Ms. {{loggedIn.username}}'s  Favourite {{wineType}} Wines</h1>
-<form action="/favourites" method="post">
-<select name="wineType" id="sortBy" onchange="this.form.submit()">
-    <option value="none" hidden selected></option>
-    <option value="Red"> Red Wines</option>
-    <option value="White">White Wines</option>
-    <option value="Sparkling">Sparkling Wines</option>
-    <option value="Rose">Rose Wines</option>
-    <option value="Dessert">Dessert Wines</option>
-    <option value="Port">Port Wines</option>
-</select>
+<div style="text-align: center">
 
-</form>
+    <h1 class="listsh">{{loggedIn.title}} {{loggedIn.username}}'s  Favourite {{wineType}} Wines</h1>
+
+    <form action="/favourites" method="post">
+    <select name="wineType" id="sortBy" onchange="this.form.submit()">
+        <option value="none" hidden selected>Wine Type</option>
+        <option value="Red"> Red Wines</option>
+        <option value="White">White Wines</option>
+        <option value="Sparkling">Sparkling Wines</option>
+        <option value="Rose">Rose Wines</option>
+        <option value="Dessert">Dessert Wines</option>
+        <option value="Port">Port Wines</option>
+    </select>
+
+    </form>
+
+</div>
 
 {{!-- {{#each userFavourites}}
 
@@ -30,10 +35,10 @@
     
 {{/each}} --}}
 
-<div id="winelisteach">
+<div class="listsDivs">
 
     {{#each userFavourites}}
-        <div id="eachwine">
+       {{!--  <div id="eachwine">
                 <a href="/wine-details/{{_id}}">
                     <div id="littlewine">
                     <img id="bottle" src="{{image}}" alt="{{wine}}">
@@ -43,16 +48,38 @@
                         <p>Rating: {{rating.average}}</p>
                     </div>
                 </a>
-            </div>
+            </div> --}}
+        {{!-- <a href="/wine-details/{{_id}}"> --}}
+        {{!-- <img src="{{image}}" alt="{{wine}}">
+        </a>
+        <h2>{{wine}}</h2>
+        <p>{{winery}}</p>
+        <p>{{location}}</p>
+        <p>{{rating.average}}</p> --}}
 
-        <div class="winebuttons">
+        <div>
+
+            <div id="eachwine">
+                    <a href="/wine-details/{{_id}}">
+                        <div id="littlewine">
+                        <img id="bottle" src="{{image}}" alt="{{wine}}">
+                            <h1 style="color: darkred">{{wine}}</h1>
+                            <p>From: {{location}}</p>
+                            <p>Winery: {{winery}}</p>
+                            <p>Rating: {{rating.average}}</p>
+                        </div>
+                    </a>
+                </div>
+
                 <form action="/favourites/{{_id}}/delete-favourite" method="post">
-                    <button type="submit">Remove from favourites</button>
+                    <button class="listsbuttons" type="submit">Remove from favourites</button>
                 </form>
                 <form action="/favourites/{{_id}}/delete-favourite-tasted" method="post">
-                    <button type="submit">Remove from favourites and tasted wines</button>
+                    <button class="listsbuttons" type="submit">Remove from favourites and tasted wines</button>
                 </form>
-            </div> 
+
+        </div>
+
         {{/each}}
 
 </div>

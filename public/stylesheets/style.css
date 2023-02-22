@@ -249,11 +249,16 @@ profile-edit.hbs */
   margin: 10px;
   text-align: center;
   width: 150px;
-  height: 35px;
+  height: 45px;
   background-color: darkred;
   color: white;
   border: 5px inset rgb(159, 0, 0);
   border-radius: 5px;
+}
+
+#title, 
+#username{
+  margin: 10px;
 }
 
 
@@ -290,12 +295,32 @@ result.hbs */
 }
 
 
-/* favourites.hbs */
+/* favourites.hbs
+wish-list.hbs 
+tasted-wines.hbs */
 
 
-/* wish-list.hbs */
+.listsh{
+  text-align: center;
+  color: darkred;
+  padding: 20px;
+  font-size: 40px;
+}
 
+.listsDivs{
+  margin-top: 30px;
+  justify-content: space-evenly;
+  display: flex;
+  flex-wrap: wrap;
+}
 
-/* tasted-wines.hbs */
-
-
+.listsbuttons{
+  margin: 10px;
+  text-align: center;
+  width: 150px;
+  height: auto;
+  background-color: darkred;
+  color: white;
+  border: 5px inset rgb(159, 0, 0);
+  border-radius: 5px;
+}

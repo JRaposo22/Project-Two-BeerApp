@@ -1,15 +1,22 @@
-<h1 id="profileh">Your profile</h1>
-<div id="profileedit">
-    <form action="" method="post">
-        <label for="title">Title: </label>
-        <input type="text" name="title" id="title" value="{{user.title}}">
-        
-        <label for="username">Username: </label>
-        <input type="text" name="username" id="username" value="{{user.username}}">
-        
-        <h2>Profile Picture:</h2>
-        <img id="profileimg" src="{{user.imageUrl}}" alt="{{user.username}} profile picture">
-        <button type="submit">Save changes</button>
-    </form>
-</div>
+<div id="profilesection">
 
+    <h1 id="profileh">Edit {{user.title}} {{user.username}}'s profile:</h1>
+    <div id="profileedit">
+        <form action="" method="post">
+            <div></div>
+                <label for="title">Title: </label>
+                <input type="text" name="title" id="title" value="{{user.title}}">
+            </div>
+
+            <div>
+                <label for="username">Username: </label>
+                <input type="text" name="username" id="username" value="{{user.username}}">
+            </div>
+
+            <h2>Profile Picture:</h2>
+            <img id="profileimg" src="{{user.imageUrl}}" alt="{{user.username}} profile picture">
+            <button id="editprofilebutton" type="submit">Save changes</button>
+        </form>
+    </div>
+
+</div>
