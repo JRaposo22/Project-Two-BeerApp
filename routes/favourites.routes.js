@@ -13,7 +13,7 @@ router.get('/favourites', async (req, res, next) => {
     const userEmail = req.session.currentUser.email
     const user = await User.findOne({email: userEmail}).populate('favourites');
     const userFavourites = user.favourites;
-    console.log("USER LOGIN" , loggedIn)
+    
 
   
     res.render('wines/favourites', {userFavourites, loggedIn})
@@ -97,8 +97,7 @@ router.post('/favourites/:id/delete-favourite', async (req, res, next) => {
       let userFavourites = user.favourites;
 
       await User.findByIdAndUpdate(user._id, { $pull:{favourites:wine._id} } );
-          console.log(userFavourites)
-    
+          
       //res.render('wines/favourites', {userFavourites, loggedIn})
       res.redirect('/favourites');
 
