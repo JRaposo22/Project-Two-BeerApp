@@ -41,7 +41,8 @@ router.post('/profile/edit', async (req, res, next) => {
         await User.findByIdAndUpdate(loggedIn._id, {username, title})
         console.log(username);
 
-        
+        req.session.currentUser.username = username
+        req.session.currentUser.title = title
         res.redirect('/profile');
         //res.redirect('auth/profile');
     } catch (error) {
