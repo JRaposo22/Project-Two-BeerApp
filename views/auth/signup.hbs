@@ -4,7 +4,7 @@
 
     <h2 id="signuph">Sign Up</h2>
     
-    <form action="/auth/signup" method="POST">
+    <form action="/auth/signup" method="POST" enctype='multipart/form-data'>
 
       <div class="signupitems">
           <input type="text" name="title" placeholder="Your title" />
@@ -21,7 +21,12 @@
       <div class="signupitems"> 
           <input type="password" name="password" placeholder="Your password" />
       </div>
-    
+
+      <div class='form-group'>
+          <label>Image:
+          <input type='file' name='profilePic' class='form-control-file' />
+          </label>
+      </div>
     <button id="signupbutton" type="submit">Sign Up</button>
 
 

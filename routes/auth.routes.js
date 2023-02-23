@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const fileUploader = require('../config/cloudinary.config');
 
 // ℹ️ Handles password encryption
 const bcrypt = require("bcrypt");
@@ -21,8 +22,12 @@ router.get("/signup", isLoggedOut, (req, res) => {
 });
 
 // POST /auth/signup
-router.post("/signup", isLoggedOut, (req, res) => {
+router.post("/signup", fileUploader.single('profilePic'), isLoggedOut, (req, res) => {
   const { username, email, password, title} = req.body;
+  let imageUrl;
+  if (req.file) imageUrl = req.file.path;
+  
+  console.log('URRRRLLLLL DA IMAGEM', imageUrl)
 
   // Check that username, email, and password are provided
   if (username === "" || email === "" || password === "") {
@@ -61,7 +66,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
     .then((salt) => bcrypt.hash(password, salt))
     .then((hashedPassword) => {
       // Create a user and save it in the database
-      return User.create({ username, email, password: hashedPassword, title});
+      return User.create({ username, email, password: hashedPassword, title, imageUrl});
     })
     .then((user) => {
       res.redirect("/auth/login");
