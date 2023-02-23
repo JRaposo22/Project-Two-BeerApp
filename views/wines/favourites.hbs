@@ -17,47 +17,12 @@
 
 </div>
 
-{{!-- {{#each userFavourites}}
-
-    <a href="/wine-details/{{_id}}">
-        <img src="{{image}}" alt="{{wine}}">
-    </a>
-        <h2>{{wine}}</h2>
-        <p>{{winery}}</p>
-        <p>{{location}}</p>
-        <p>{{rating.average}}</p>
-        <form action="/favourites/{{_id}}/delete-favourite" method="post">
-            <button type="submit">Remove from favourites</button>
-        </form>
-        <form action="/favourites/{{_id}}/delete-favourite-tasted" method="post">
-            <button type="submit">Remove from favourites and tasted wines</button>
-        </form>
-    
-{{/each}} --}}
 
 <div class="listsDivs">
 
     {{#each userFavourites}}
-       {{!--  <div id="eachwine">
-                <a href="/wine-details/{{_id}}">
-                    <div id="littlewine">
-                    <img id="bottle" src="{{image}}" alt="{{wine}}">
-                        <h1 style="color: darkred">{{wine}}</h1>
-                        <p>From: {{location}}</p>
-                        <p>Winery: {{winery}}</p>
-                        <p>Rating: {{rating.average}}</p>
-                    </div>
-                </a>
-            </div> --}}
-        {{!-- <a href="/wine-details/{{_id}}"> --}}
-        {{!-- <img src="{{image}}" alt="{{wine}}">
-        </a>
-        <h2>{{wine}}</h2>
-        <p>{{winery}}</p>
-        <p>{{location}}</p>
-        <p>{{rating.average}}</p> --}}
-
-        <div>
+      
+        <div class = "wines-margin">
 
             <div id="eachwine">
                     <a href="/wine-details/{{_id}}">

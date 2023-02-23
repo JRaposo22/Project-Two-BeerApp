@@ -383,3 +383,7 @@ tasted-wines.hbs */
   display: flex;
   flex-direction: column;
 }
+
+.wines-margin{
+  margin-bottom: 20px;
+}
