@@ -33,6 +33,9 @@
 <textarea name="reviewContent" id="reviewContent" cols="30" rows="10">{{this.content}}</textarea>
     <button type="submit">Edit your Review</button>
 </form>
+<form action="/review/delete/{{this._id}}/{{this.wineId}}" method="post">
+    <button type="submit">Delete your Review</button>
+</form>
 {{/each}}
 
 <hr>

@@ -1,5 +1,6 @@
 const { Schema, model } = require("mongoose");
 
+
 const wineSchema = new Schema ({
 
     winery: String,
@@ -23,6 +24,7 @@ const wineSchema = new Schema ({
       ]
     
 });
+
 
 module.exports = model('Wine', wineSchema);
 

@@ -49,5 +49,23 @@ router.post("/review/edit/:reviewId/:wineId", async (req, res, next) => {
   }
 })
 
+router.post("/review/delete/:reviewId/:wineId", async (req, res, next) => {
+  try {
+    const userId = req.session.currentUser._id;
+    const reviewId = req.params.reviewId
+    const wineId = req.params.wineId;
+    const {reviewContent} = req.body
+    await Review.findByIdAndDelete(reviewId, {content: reviewContent});
+    await Wine.findByIdAndUpdate(wineId, {$pull : {reviews: reviewId}});
+    await User.findByIdAndUpdate(userId, {$pull : {reviews: reviewId}})
+    //const review = await Review.findById(reviewId)
+    //console.log(reviewContent)
+    
+    res.redirect(`/wine-details/${wineId}`); 
+  } catch (error) {
+    console.log(error)
+    next(error)
+  }
+})
 
 module.exports = router;
