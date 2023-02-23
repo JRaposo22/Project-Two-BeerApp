@@ -22,13 +22,13 @@ router.get("/signup", isLoggedOut, (req, res) => {
 });
 
 // POST /auth/signup
-router.post("/signup", fileUploader.single('profilePic'), isLoggedOut, (req, res) => {
+router.post("/signup", fileUploader.single('imageUrl'), isLoggedOut, (req, res) => {
   const { username, email, password, title} = req.body;
   let imageUrl;
+  console.log(req.file.path)
   if (req.file) imageUrl = req.file.path;
   
-  console.log('URRRRLLLLL DA IMAGEM', imageUrl)
-
+  
   // Check that username, email, and password are provided
   if (username === "" || email === "" || password === "") {
     res.status(400).render("auth/signup", {
