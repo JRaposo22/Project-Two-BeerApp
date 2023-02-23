@@ -401,3 +401,30 @@ tasted-wines.hbs */
 .wines-margin{
   margin-bottom: 40px;
 }
+
+.no-result-h{
+  margin:0 auto;
+  text-align:center;
+}
+
+.error-img{
+  border-radius: 100%;
+  border:solid 5px white;
+  margin:0 auto;
+  height:auto;
+  width: 400px;
+}
+
+.not-found-img{
+  height:auto;
+  width:500px;
+  margin:0 auto;
+}
+
+.page-error{
+
+  color:darkred;
+  font-size: 40px;
+  
+
+}

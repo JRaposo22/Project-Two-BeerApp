@@ -1,17 +1,6 @@
-{{!-- {{#each wine}}
-
-    <a href="/wine-details/{{_id}}">
-    <img src="{{image}}" alt="{{wine}}">
-    <h2>{{wine}}</h2>
-    <h4>{{winery}}</h4>
-    <h4>{{location}}</h4>
-    <p>{{rating.average}}</p>
-    </a>
-   
-{{/each }} --}}
-
+{{#unless noWines}}
 <h1 id="searchresultsh">Search results:</h1>
-
+{{/unless}}
 <div id="winelisteach">
 
     {{#each wine}}
@@ -29,3 +18,8 @@
     {{/each}}
 
 </div>
+
+{{#if noWines}}
+<h1 class="no-result-h" id="searchresultsh">WH$rEzZZz mY WIIiIiIIiINE?!?#"#%#"??</h1>
+<img class="error-img"src="https://res.cloudinary.com/dkoe4o8w1/image/upload/v1677182205/AMANCANTRY_md5gv9.jpg" alt="">
+{{/if}}

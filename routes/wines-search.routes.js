@@ -14,12 +14,12 @@ router.post('/search', async (req, res, next) => {
 
     try {
 
+        let noWines = false;
         //check current user
         let loggedIn = req.session.currentUser;
         const {searchWine, searchWinery} = req.body;
         //Initialize wine variable
         let wine 
-        console.log('SEARCHHHHHHHHHHHH',searchWine) 
         //check if the user is searching by wine name or winery
         if(searchWine) {
             wine = await Wine.aggregate([{
@@ -48,8 +48,8 @@ router.post('/search', async (req, res, next) => {
               }]);
         }
         
-        
-        res.render('wines/result', {wine, loggedIn});
+        if(wine.length <= 0) noWines = true;
+        res.render('wines/result', {wine, loggedIn, noWines});
     } catch (error) {
         console.log(error);
         next(error);
