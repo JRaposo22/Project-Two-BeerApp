@@ -71,12 +71,16 @@
                     </a>
                 </div>
 
-                <form action="/favourites/{{_id}}/delete-favourite" method="post">
-                    <button class="listsbuttons" type="submit">Remove from favourites</button>
-                </form>
-                <form action="/favourites/{{_id}}/delete-favourite-tasted" method="post">
-                    <button class="listsbuttons" type="submit">Remove from favourites and tasted wines</button>
-                </form>
+                <div class="buttonsdiv">
+                
+                    <form action="/favourites/{{_id}}/delete-favourite" method="post">
+                        <button style="background-color: darkred" class="listsbuttons" type="submit">Remove from favourites</button>
+                    </form>
+                    <form action="/favourites/{{_id}}/delete-favourite-tasted" method="post">
+                        <button style="background-color: darkred" class="listsbuttons" type="submit">Remove from favourites and tasted wines</button>
+                    </form>
+
+                </div>
 
         </div>
 

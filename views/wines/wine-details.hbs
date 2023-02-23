@@ -1,48 +1,68 @@
-<h2>{{wine.wine}}</h2>
-<img src="{{wine.image}}" alt="{{wine.wine}}">
-<p>{{wine.winery}}</p>
-<p>{{wine.location}}</p>
-<p>{{wine.rating.average}}</p>
+<div id="detailspage">
 
-{{#if loggedIn}}
-<form action="/wine-details/{{wine._id}}/add-favourite" method="post">
-    <button type="submit">Add to Favourites</button>
-</form>
-<form action="/wine-details/{{wine._id}}/add-tasted-wines" method="post">
-    <button type="submit">Add to Tasted</button>
-</form>
-<form action="/wine-details/{{wine._id}}/add-wish-list" method="post">
-    <button type="submit">Add to Wish List</button>
-</form>
+    <div id="winedetailsDiv">
 
-<form action="/review/create/{{wine._id}}" method="post">
+        <h2>{{wine.wine}}</h2>
+        <img src="{{wine.image}}" alt="{{wine.wine}}">
+        <p>Winery: {{wine.winery}}</p>
+        <p>From: {{wine.location}}</p>
+        <p>Rating: {{wine.rating.average}}</p>
 
-    <textarea name="reviewContent" id="" cols="30" rows="10" placeholder="Review">
+    </div>
 
-    </textarea>
+    <div>
 
-    <button type="submit">Submit review</button>
+        {{#if loggedIn}}
+        <form action="/wine-details/{{wine._id}}/add-favourite" method="post">
+            <button style="background-color: darkred" class="listsbuttons" type="submit">Add to Favourites</button>
+        </form>
+        <form action="/wine-details/{{wine._id}}/add-tasted-wines" method="post">
+            <button style="background-color: darkred" class="listsbuttons" type="submit">Add to Tasted</button>
+        </form>
+        <form action="/wine-details/{{wine._id}}/add-wish-list" method="post">
+            <button style="background-color: darkred" class="listsbuttons" type="submit">Add to Wish List</button>
+        </form>
 
-</form>
-{{/if}}
+        <form action="/review/create/{{wine._id}}" method="post">
 
-{{#each userFilteredReviews}}
-<h1>Your review:</h1>
+            <textarea name="reviewContent" id="" cols="30" rows="10" placeholder="Review">
 
-<form action="/review/edit/{{this._id}}/{{this.wineId}}" method="post">
-<textarea name="reviewContent" id="reviewContent" cols="30" rows="10">{{this.content}}</textarea>
-    <button type="submit">Edit your Review</button>
-</form>
-<form action="/review/delete/{{this._id}}/{{this.wineId}}" method="post">
-    <button type="submit">Delete your Review</button>
-</form>
-{{/each}}
+            </textarea>
 
-<hr>
+            <button style="background-color: darkred" class="listsbuttons" type="submit">Submit review</button>
 
-<h1>{{wine.wine}}'s Reviews:</h1>
-{{#each filteredReviews}}
-<h4>User:{{this.author.username}}</h4>
-<p>{{this.content}}</p>
-{{/each}}
+        </form>
+        {{/if}}
 
+    </div>
+
+    <div>
+
+
+        <h1 id="winedetailsreviews">{{wine.wine}}'s Reviews:</h1>
+        
+           {{#each userFilteredReviews}}
+
+        <h1>Your review:</h1>
+        <div id="yourreview">
+
+                <form action="/review/edit/{{this._id}}/{{this.wineId}}" method="post">
+                <textarea name="reviewContent" id="reviewContent" cols="30" rows="10">{{this.content}}</textarea>
+                    <button style="background-color: darkred" type="submit">Edit your Review</button>
+                </form>
+
+                <form action="/review/delete/{{this._id}}/{{this.wineId}}" method="post">
+                    <button style="background-color: darkred" type="submit">Delete your Review</button>
+                </form>
+
+        </div>
+        {{/each}}
+
+        {{#each filteredReviews}}
+        <p id="usersreviews">{{this.content}}</p>
+        <h4 id="reviewsusername">User: {{this.author.username}}</h4>
+        {{/each}}
+
+    </div>
+
+</div>

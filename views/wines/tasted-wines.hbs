@@ -35,12 +35,16 @@
                     </a>
                 </div>
 
-                <form action="/wine-details/{{_id}}/add-favourite" method="post">
-                    <button class="listsbuttons" type="submit">Add to Favourites</button>
-                </form>
-                <form action="/tasted-wines/{{_id}}/delete-tasted-wine" method="post">
-                    <button style="background-color: darkred" class="listsbuttons" type="submit">Remove from tasted wines</button>
-                </form>
+                <div class="buttonsdiv">
+
+                    <form action="/wine-details/{{_id}}/add-favourite" method="post">
+                        <button style="background-color: darkred" class="listsbuttons" type="submit">Add to Favourites</button>
+                    </form>
+                    <form action="/tasted-wines/{{_id}}/delete-tasted-wine" method="post">
+                        <button style="background-color: darkred" class="listsbuttons" type="submit">Remove from tasted wines</button>
+                    </form>
+
+                </div>
 
         </div>
 

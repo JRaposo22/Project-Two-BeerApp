@@ -27,13 +27,30 @@ a{
   background-size: cover;
   background-position: center;
   color: antiquewhite;
-  height: 688;
+  height: 89.3vh;
 }
+
 .titles{
   position: relative;
   top: 20%;
 }
 
+.titles h1{
+  font-size: 120px;
+}
+
+.titles p{
+  font-family: 30px;
+}
+
+@media(max-width: 584px){
+  .titles h1{
+    font-size: 80px;
+  }
+  .titles p{
+    font-size: 15px;
+  }
+}
 
 /* signup.hbs */
 
@@ -323,4 +340,46 @@ tasted-wines.hbs */
   color: white;
   border: 5px inset rgb(159, 0, 0);
   border-radius: 5px;
+}
+
+#detailspage{
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-around;
+  
+}
+
+#winedetailsDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.buttonsdiv{
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+  justify-content: center;
+}
+
+#winedetailsreviews{
+  font-size: 20px;
+  color: darkred;
+}
+
+#usersreviews{
+  margin: 30px 0 0 0;
+  padding: 10px 0;
+  font-size: 18px;
+  background-color: lightgrey;
+  width: 300px;
+  border-radius: 5px;
+  padding-left: 10px;
+
+}
+
+#yourreview{
+  display: flex;
+  flex-direction: column;
 }

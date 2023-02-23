@@ -21,21 +21,6 @@
 
     {{#each userWishList}}
 
-        {{!-- <a href="/wine-details/{{_id}}">
-            <img src="{{image}}" alt="{{wine}}">
-            </a>
-            <h2>{{wine}}</h2>
-            <p>{{winery}}</p>
-            <p>{{location}}</p>
-            <p>{{rating.average}}</p> --}}
-        
-        {{!-- <a href="/wine-details/{{_id}}"> --}}
-            {{!-- <img src="{{image}}" alt="{{wine}}">
-            </a>
-            <h2>{{wine}}</h2>
-            <p>{{winery}}</p>
-            <p>{{location}}</p>
-            <p>{{rating.average}}</p> --}}
         <div>
 
             <div id="eachwine">
@@ -50,16 +35,20 @@
                     </a>
                 </div>
 
-            <form action="/wine-details/{{_id}}/add-favourite" method="post">
-                <button class="listsbuttons" type="submit">Add to Favourites</button>
-            </form>
-            <form action="/wine-details/{{_id}}/add-tasted-wines" method="post">
-                <button class="listsbuttons" type="submit">Add to Tasted</button>
-            </form>
-            <form action="/wish-list/{{_id}}/delete-wish-list" method="post">
-                <button class="listsbuttons" type="submit">Remove from Wish List</button>
-            </form>
-        
+            <div class="buttonsdiv">
+
+                <form action="/wine-details/{{_id}}/add-favourite" method="post">
+                    <button style="background-color: darkred" class="listsbuttons" type="submit">Add to Favourites</button>
+                </form>
+                <form action="/wine-details/{{_id}}/add-tasted-wines" method="post">
+                    <button style="background-color: darkred" class="listsbuttons" type="submit">Add to Tasted</button>
+                </form>
+                <form action="/wish-list/{{_id}}/delete-wish-list" method="post">
+                    <button style="background-color: darkred" class="listsbuttons" type="submit">Remove from Wish List</button>
+                </form>
+
+            </div>
+
         </div>
 
     {{/each}}
