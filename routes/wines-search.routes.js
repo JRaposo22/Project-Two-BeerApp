@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const Wine = require('../models/Wine.model')
+const { MongoClient, ObjectID } = require("mongodb");
 
 router.get('/search', (req, res) => {
 
@@ -18,11 +19,33 @@ router.post('/search', async (req, res, next) => {
         const {searchWine, searchWinery} = req.body;
         //Initialize wine variable
         let wine 
+        console.log('SEARCHHHHHHHHHHHH',searchWine) 
         //check if the user is searching by wine name or winery
         if(searchWine) {
-            wine = await Wine.find({'wine': searchWine});           
+            wine = await Wine.aggregate([{
+                $search:{
+
+                  //"index": 'default', // optional, defaults to "default"
+                  "autocomplete": {
+                    "query": searchWine,
+                    "path": "wine",
+ 
+                }
+            }
+              }]);   
+                   
         }else{
-            wine = await Wine.find({'winery': searchWinery});
+            wine = await Wine.aggregate([{
+                $search:{
+
+                  //"index": 'default', // optional, defaults to "default"
+                  "autocomplete": {
+                    "query": searchWinery,
+                    "path": "winery",
+ 
+                }
+            }
+              }]);
         }
         
         
@@ -32,7 +55,7 @@ router.post('/search', async (req, res, next) => {
         next(error);
     }
 
-});
+}); 
 
 
 
