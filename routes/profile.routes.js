@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const Wine = require('../models/Wine.model');
 const User = require('../models/User.model');
+const fileUploader = require('../config/cloudinary.config');
 
 //User profile route
 router.get('/profile', async (req, res, next) => {
@@ -33,16 +34,22 @@ router.get('/profile/edit', async (req, res, next) => {
     }
 });
 
-router.post('/profile/edit', async (req, res, next) => {
+router.post('/profile/edit', fileUploader.single('imageUrl'), async (req, res, next) => {
 
     try {
         let loggedIn = req.session.currentUser;
-        let {username, title} = req.body;
-        await User.findByIdAndUpdate(loggedIn._id, {username, title})
-        console.log(username);
+        let {username, title, currentImage} = req.body;
+        let imageUrl;
+        
+        if (req.file) imageUrl = req.file.path;
+        else imageUrl = currentImage
+        
+        await User.findByIdAndUpdate(loggedIn._id, {username, title, imageUrl})
+        
 
         req.session.currentUser.username = username
         req.session.currentUser.title = title
+        req.session.currentUser.imageUrl = imageUrl;
         res.redirect('/profile');
         //res.redirect('auth/profile');
     } catch (error) {

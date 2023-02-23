@@ -25,7 +25,6 @@ router.get("/signup", isLoggedOut, (req, res) => {
 router.post("/signup", fileUploader.single('imageUrl'), isLoggedOut, (req, res) => {
   const { username, email, password, title} = req.body;
   let imageUrl;
-  console.log(req.file.path)
   if (req.file) imageUrl = req.file.path;
   
   
