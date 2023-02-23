@@ -40,7 +40,6 @@
 
 
         <h1 id="winedetailsreviews">{{wine.wine}}'s Reviews:</h1>
-        
            {{#each userFilteredReviews}}
 
         <h1>Your review:</h1>
@@ -54,7 +53,7 @@
                 <form action="/review/delete/{{this._id}}/{{this.wineId}}" method="post">
                     <button style="background-color: darkred" type="submit">Delete your Review</button>
                 </form>
-
+                
         </div>
         {{/each}}
 
