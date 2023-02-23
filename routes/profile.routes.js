@@ -37,14 +37,22 @@ router.post('/profile/edit', async (req, res, next) => {
 
     try {
         let loggedIn = req.session.currentUser;
-        let {username, title} = req.body;
-        await User.findByIdAndUpdate(loggedIn._id, {username, title})
-        console.log(username);
+        let {username, title, imageUrl} = req.body;
+
+        if (req.file) {
+            imageUrl = req.file.path;
+          } else {
+            imageUrl = currentImage;
+          }
+
+        await User.findByIdAndUpdate(loggedIn._id, {username, title, imageUrl})
 
         req.session.currentUser.username = username
         req.session.currentUser.title = title
+        req.session.currentUser.imageUrl = imageUrl
+
         res.redirect('/profile');
-        //res.redirect('auth/profile');
+        
     } catch (error) {
         console.log(error);
         next(error);
