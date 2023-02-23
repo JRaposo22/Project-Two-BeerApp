@@ -9,7 +9,11 @@ router.get('/wine-details/:id', async (req, res, next) => {
     try {
         let loggedIn = req.session.currentUser;
         const {id} = req.params
-        const user = await User.findById(loggedIn._id).populate("reviews")
+
+        let user
+        if(loggedIn != undefined){
+        user = await User.findById(loggedIn._id).populate("reviews")
+        }
         let wine = await Wine.findById(id)
         .populate('reviews')
         .populate({
@@ -21,15 +25,19 @@ router.get('/wine-details/:id', async (req, res, next) => {
         });
 
         let userReviews = wine.reviews
-        let userFilteredReviews = userReviews.filter(review => {
+        let filteredReviews
+        let userFilteredReviews
+        let wineReviews = wine.reviews
+        if(loggedIn != undefined){
+          userFilteredReviews = userReviews.filter(review => {
           return review.author.email === user.email
         })
-        
-        let wineReviews = wine.reviews
-        let filteredReviews = wineReviews.filter(review => {
+         filteredReviews = wineReviews.filter(review => {
           return review.author.email !== user.email
         })
-
+      } 
+      
+      else{ let filteredReviews = wine.reviews}
         
 
         res.render('wines/wine-details', {wine, loggedIn, user, userFilteredReviews, filteredReviews})

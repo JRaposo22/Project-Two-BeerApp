@@ -69,7 +69,9 @@ router.post("/signup", fileUploader.single('profilePic'), isLoggedOut, (req, res
       return User.create({ username, email, password: hashedPassword, title, imageUrl});
     })
     .then((user) => {
-      res.redirect("/auth/login");
+      req.session.currentUser = user.toObject();
+      res.redirect("/");
+
     })
     .catch((error) => {
       if (error instanceof mongoose.Error.ValidationError) {
