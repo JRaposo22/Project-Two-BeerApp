@@ -383,3 +383,17 @@ tasted-wines.hbs */
   display: flex;
   flex-direction: column;
 }
+
+#prevnextbuttons{
+  display: flex;
+  color: white;
+  justify-content: center;
+  margin: 10px;
+}
+
+.prevnextbutton{
+  padding: 10px 30px;
+  background-color: darkred;
+  margin: 30px;
+  border-radius: 5px;
+}
