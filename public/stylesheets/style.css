@@ -343,9 +343,16 @@ tasted-wines.hbs */
 }
 
 #detailspage{
+  align-items: center;
   padding-top: 40px;
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 25% 15% 15% 30% 10%;
+  /* grid-template-columns: auto; */
+  grid-template-areas: 
+  "blank winedetailsDiv add-buttons yourreview yourreview "
+  "blank submit-review submit-review submit-review submit-review ";
+  gap: 10px;
+ 
   
 }
 
@@ -353,7 +360,102 @@ tasted-wines.hbs */
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 40px;
+  grid-area: winedetailsDiv;
+  
+}
+
+.add-buttons{
+  grid-area:add-buttons ;
+  width:180px;
+  
+}
+.form-flex{
+  display:flex; 
+  flex-direction: column;
+  width:300px;
+}
+.submit-review{
+  grid-area:submit-review ;
+  padding-left:30px;
+}
+
+#winedetailsreviews{
+  font-size: 20px;
+  color: darkred;
+  grid-area:winedetailsreviews ;
+  
+
+}
+
+#yourreview{
+  display: flex;
+  flex-direction: column;
+  grid-area:yourreview
+}
+
+@media(max-width:1164px) {
+  #detailspage{
+    align-items: center;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    
+   
+    
+  }
+  
+  #winedetailsDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    
+  }
+  
+  .add-buttons{
+    
+    width:180px;
+    
+  }
+  
+  .submit-review{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left:0px;
+  }
+  
+  #winedetailsreviews{
+    font-size: 20px;
+    color: darkred;
+    
+    
+  
+  }
+  
+  #yourreview{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-flex{
+    align-items: center;
+    
+  }
+
+  .text-area-review{
+    width:300px;
+  }
+
+  
+}
+
+.details-form-container{
+
+  
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .buttonsdiv{
@@ -363,10 +465,7 @@ tasted-wines.hbs */
   justify-content: center;
 }
 
-#winedetailsreviews{
-  font-size: 20px;
-  color: darkred;
-}
+
 
 #usersreviews{
   margin: 30px 0 0 0;
@@ -379,10 +478,7 @@ tasted-wines.hbs */
 
 }
 
-#yourreview{
-  display: flex;
-  flex-direction: column;
-}
+
 
 #prevnextbuttons{
   display: flex;
