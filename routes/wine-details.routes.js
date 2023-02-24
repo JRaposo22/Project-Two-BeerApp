@@ -25,7 +25,7 @@ router.get('/wine-details/:id', async (req, res, next) => {
         });
 
         let userReviews = wine.reviews
-        let filteredReviews
+        let filteredReviews = wine.reviews;
         let userFilteredReviews
         let wineReviews = wine.reviews
         if(loggedIn != undefined){
@@ -37,7 +37,7 @@ router.get('/wine-details/:id', async (req, res, next) => {
         })
       } 
       
-      else{ let filteredReviews = wine.reviews}
+      else{  filteredReviews = wine.reviews}
         
 
         res.render('wines/wine-details', {wine, loggedIn, user, userFilteredReviews, filteredReviews})
