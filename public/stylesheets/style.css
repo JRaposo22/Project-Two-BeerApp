@@ -393,6 +393,13 @@ tasted-wines.hbs */
   grid-area:yourreview
 }
 
+@media(max-width:650px){
+  .flex-nav{
+    display:flex;
+    justify-content: center;
+  }
+}
+
 @media(max-width:1164px) {
   #detailspage{
     align-items: center;
@@ -450,6 +457,8 @@ tasted-wines.hbs */
 
   
 }
+
+
 
 .details-form-container{
 
